@@ -1,0 +1,21 @@
+[general]
+name=SettingTracker
+qgisMinimumVersion=3.10
+description=Save and load user-defined settings for time series visualization in QGIS.
+version=1.0
+author=Mehdi
+email=mehdi.hatami@mail.polimi.it
+about=This QGIS plugin allows users to save their preferred time series visualization settings and load them as needed. Features dropdown menus, color pickers, and input fields for visual customizations.
+
+[license]
+type=GNU General Public License (GPLv2 or later)
+file=license.txt
+
+[dependencies]
+required=QGIS, PyQt5, UserSettings
+
+[end]
+
+
+
+
