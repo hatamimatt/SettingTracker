@@ -51,6 +51,23 @@ class UserSettings:
     def set_graph_height(self, value):
         self.selected_graph_height = value
 
+
+    def load_from_xml(self, filename):
+        tree = ET.parse(filename)
+        root = tree.getroot()
+        
+        self.selected_frequency = root.find("Frequency").text
+        self.selected_detrending = root.find("Detrending").text
+        self.selected_marker_size = root.find("MarkerSize").text
+        self.selected_unit = root.find("Unit").text
+        self.selected_marker = root.find("Marker").text
+        self.selected_color = root.find("Color").text
+        self.selected_font = root.find("Font").text
+        self.selected_horiz_grid = root.find("HorizontalGrid").text
+        self.selected_vertic_grid = root.find("VerticalGrid").text
+        self.selected_graph_width = int(root.find("GraphWidth").text)
+        self.selected_graph_height = int(root.find("GraphHeight").text)
+        
     
 
 

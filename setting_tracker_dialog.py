@@ -121,6 +121,9 @@ class SettingTrackerDialog(QtWidgets.QDialog, FORM_CLASS,Ui_SettingTrackerDialog
         self.detrending_selection.currentIndexChanged.connect(self.handle_detrending_selection)
         # Load settings
         self.settings = UserSettings()
+            # Load saved settings if they exist
+        settings_file_path = os.path.join(os.getenv('APPDATA'), 'QGIS', 'QGIS3', 'profiles', 'default', 'python', 'plugins', 'user_setting.xml')
+        self.load_settings(settings_file_path)
         
 
     def handle_frequency_selection(self, index):
@@ -237,3 +240,23 @@ class SettingTrackerDialog(QtWidgets.QDialog, FORM_CLASS,Ui_SettingTrackerDialog
         # ... add the radio_group_box to your dialog's layout ...
 
 
+    def load_settings(self, file_path):
+        if os.path.exists(file_path):
+            self.settings.load_from_xml(file_path)
+
+            # Update UI components with loaded settings
+            self.frequency_selection.setCurrentText(self.settings.selected_frequency)
+            self.detrending_selection.setCurrentText(self.settings.selected_detrending)
+            self.marker_size_selection.setCurrentText(self.settings.selected_marker_size)
+            self.unit_selection.setCurrentText(self.settings.selected_unit)
+            self.marker_selection.setCurrentText(self.settings.selected_marker)
+            self.color_selection.setCurrentText(self.settings.selected_color)
+            self.font_selection.setCurrentText(self.settings.selected_font)
+            self.horiz_grid_selection.setCurrentText(self.settings.selected_horiz_grid)
+            self.vertic_grid_selection.setCurrentText(self.settings.selected_vertic_grid)
+            self.graph_width_selection.setValue(self.settings.selected_graph_width)
+            self.graph_height_selection.setValue(self.settings.selected_graph_height)
+            
+            # ... Continue for other settings ...
+        else:
+            print("Settings file not found. Using default values.")
