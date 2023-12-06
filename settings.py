@@ -69,7 +69,7 @@ class UserSettings:
         self.selected_graph_height = int(root.find("GraphHeight").text)
         
     
-
+ 
 
     def save_to_xml(self, filename):
         root = ET.Element("UserSettings")
