@@ -37,8 +37,8 @@
 
 ## Developer Information
 
-- **Name:** Mehdi
-- **Email:** [mehdi.hatami@mail.polimi.it](mailto:mehdi.hatami@mail.polimi.it)
+- **Name:** Matt
+- **Email:** [HatamiMatt@gmail.com](mailto:HatamiMatt@gmail.com)
 - **Date Created:** 2023-10-06
 - **License:** GNU General Public License (GPLv2 or later)
 
